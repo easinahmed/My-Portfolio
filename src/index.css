@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @keyframes typewriter {
   from {
     width: 0;
@@ -7,6 +8,8 @@
     width: 100%;
   }
 }
+
+
 
 @keyframes blink {
   50% {
@@ -24,3 +27,4 @@
     typewriter 3.5s steps(40, end) 2s forwards,
     blink 0.75s step-end infinite;
 }
+

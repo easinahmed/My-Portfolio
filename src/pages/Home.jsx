@@ -4,10 +4,10 @@ import Skill from "../Section/Skill"
 
 const Home = () => {
   return (
-    <>
+    <div>
     <Hero/>
     <Skill/>
-    </>
+    </div>
   )
 }
 

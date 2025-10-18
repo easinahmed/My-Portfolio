@@ -51,13 +51,13 @@ const Header = () => {
           </div>
 
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map(link => <a key={link.label} href={link.href} className="text-sm font-medium text-white hover:text-blue-600 transition-colors duration-300">
+            {navLinks.map(link => <a key={link.label} href={link.href} className="text-base font-medium text-white hover:text-blue-600 transition-colors duration-300">
                 {link.label}
               </a>)}
           </nav>
 
           <div className="flex items-center gap-4">
-             <a href="#" className="hidden sm:inline-flex items-center justify-center rounded-lg text-sm font-medium h-10 px-6 py-3 bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
+             <a href="#" className="hidden text-base sm:inline-flex items-center justify-center rounded-lg text-sm font-medium h-10 px-6 py-3 bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
                 Hire Me
              </a>
 
@@ -77,7 +77,7 @@ const Header = () => {
             {navLinks.map(link => <a key={link.label} href={link.href} className="text-white hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300">
                 {link.label}
               </a>)}
-             <a href="#" className="w-full mt-2 text-center items-center justify-center rounded-lg text-sm font-medium h-10 px-6 py-3 bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 block">
+             <a href="#" className="w-full mt-2 text-center items-center text-base justify-center rounded-lg font-medium h-10 px-6 py-3 bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 block">
                 Hire Me
              </a>
           </div>
