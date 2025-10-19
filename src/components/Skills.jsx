@@ -1,8 +1,9 @@
 // src/components/SkillSection.jsx (বা আপনার পছন্দের ফোল্ডারে)
 
 import React from 'react';
+import { motion } from 'framer-motion';
 // Lucide React থেকে প্রয়োজনীয় আইকনগুলো আমদানি করা হলো
-import { Code, GithubIcon, Monitor, Paintbrush, Rocket, Zap } from 'lucide-react'; 
+import { BrickWallFireIcon, Code, GithubIcon, Monitor, Paintbrush, Rocket, Zap } from 'lucide-react'; 
 
 // --- 1. DATA STRUCTURE ---
 // স্কিল ডেটা অ্যারে: এখানে সমস্ত তথ্য সাজানো আছে।
@@ -30,7 +31,7 @@ const skillData = [
   },
   {
     id: 4,
-    icon: Rocket, // Motion Icon
+    icon: BrickWallFireIcon, // Motion Icon
     title: "Firebase",
     details: "Authentication Using Firebase.",
     color: "#FF9800" // Orange
@@ -53,10 +54,10 @@ const SkillItem = ({ icon: Icon, title, details, color }) => {
     <div className="flex items-start mb-6 last:mb-0">
       
       {/* বাম পাশের আইকন ও রঙিন লাইন */}
-      <div className="flex flex-col items-center mr-4 z-10"> {/* z-10 for icon on top of line */}
+      <div className="flex flex-col animate-fade-in-up items-center mr-4 z-10"> {/* z-10 for icon on top of line */}
         {/* আইকন কন্টেইনার */}
         <div 
-          className="p-3 rounded-full flex items-center justify-center shadow-lg transform transition duration-300 hover:scale-110" 
+          className="p-3 rounded-full flex items-center  justify-center shadow-lg transform transition duration-300 hover:scale-110" 
           style={{ backgroundColor: color }}
         >
           {/* Lucide Icon */}
@@ -71,7 +72,7 @@ const SkillItem = ({ icon: Icon, title, details, color }) => {
       </div>
 
       {/* স্কিল বক্স */}
-      <div className="flex-grow p-4 bg-gray-800 rounded-xl shadow-2xl border border-gray-700 transition duration-300 hover:border-cyan-400">
+      <div className="flex-grow cursor-pointer animate-fade-in-up p-4 bg-gray-800 rounded-xl shadow-2xl border border-gray-700 transition duration-300 hover:border-cyan-400">
         <h3 className="text-xl font-semibold mb-1 text-white">{title}</h3>
         <p className="text-sm text-gray-400">{details}</p>
       </div>
@@ -88,26 +89,35 @@ const Skills = () => {
         
         
         <div className="relative">
-          {skillData.map((skill, index) => (
-            <div key={skill.id} className="relative">
-              
-              {/* Timeline Connector Line Logic (Vertical Line between items) */}
-              {index < skillData.length - 1 && (
-                <div 
-                  className="absolute top-0 bottom-0 left-[18px] w-0.5 h-full z-0" 
-                  style={{ backgroundColor: skillData[index + 1].color, opacity: 0.5 }}
-                ></div>
-              )}
-              
-              {/* Skill Item */}
-              <SkillItem 
-                icon={skill.icon} 
-                title={skill.title} 
-                details={skill.details} 
-                color={skill.color} 
-              />
-            </div>
-          ))}
+          {skillData.map((skill, index) => {
+            // Alternate: odd index left, even index right
+            const fromX = index % 2 === 0 ? -80 : 80;
+            return (
+              <motion.div
+                key={skill.id}
+                className="relative"
+                initial={{ opacity: 0, x: fromX }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+              >
+                {/* Timeline Connector Line Logic (Vertical Line between items) */}
+                {index < skillData.length - 1 && (
+                  <div 
+                    className="absolute top-0 bottom-0 left-[18px] w-0.5 h-full z-0" 
+                    style={{ backgroundColor: skillData[index + 1].color, opacity: 0.5 }}
+                  ></div>
+                )}
+                {/* Skill Item */}
+                <SkillItem 
+                  icon={skill.icon} 
+                  title={skill.title} 
+                  details={skill.details} 
+                  color={skill.color} 
+                />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
