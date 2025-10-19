@@ -24,10 +24,10 @@ const XIcon = ({
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);;
   const navLinks = [{
-    href: "#",
+    href: "#projects",
     label: "Projects"
   }, {
-    href: "#",
+    href: "#skill",
     label: "Skills"
   }, {
     href: "#",
@@ -44,7 +44,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           
           <div className="flex-shrink-0">
-            <a href="#" className="flex items-center gap-2">
+            <a href="#hero" className="flex items-center gap-2">
                <MountainIcon className="h-6 w-6 text-white" />
               <span className="text-lg font-semibold text-white">Portfolio.</span>
             </a>

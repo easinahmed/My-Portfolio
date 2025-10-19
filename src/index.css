@@ -27,4 +27,7 @@
     typewriter 3.5s steps(40, end) 2s forwards,
     blink 0.75s step-end infinite;
 }
+*{
+  scroll-behavior: smooth;
+}
 

@@ -1,4 +1,5 @@
 import Hero from "../Section/Hero"
+import Projects from "../Section/Projects"
 import Skill from "../Section/Skill"
 
 
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
     <Hero/>
     <Skill/>
+    <Projects/>
     </div>
   )
 }
